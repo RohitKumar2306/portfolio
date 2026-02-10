@@ -36,8 +36,8 @@ function ScrollDarkenController() {
     root.style.setProperty('--scroll-overlay-opacity', String(t * maxOpacity));
 
     if (theme === 'light') {
-      const start: [number, number, number] = [255, 253, 250];
-      const end: [number, number, number] = [235, 237, 244];
+      const start: [number, number, number] = [238, 242, 247];
+      const end: [number, number, number] = [225, 231, 240];
       const [r, g, b] = lerpColor(start, end, t);
       document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     } else {
