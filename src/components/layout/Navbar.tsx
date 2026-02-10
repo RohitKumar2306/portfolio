@@ -36,9 +36,8 @@ export default function Navbar() {
         <Container>
           <div className={styles.content}>
             <button className={styles.logo} onClick={() => scrollTo('home')}>
-              <span className={styles.firstName}>Rohit</span>{' '}
-              <span className={styles.lastName}>Kumar</span>
-              <span className={styles.cursor}>_</span>
+              <span className={styles.firstName}>Rohit Kumar</span>{' '}
+              <span className={styles.lastName}>Chintamani</span>
             </button>
 
             <div className={styles.desktopNav}>

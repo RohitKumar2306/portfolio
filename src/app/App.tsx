@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ThemeProvider, useTheme } from './providers/ThemeProvider';
 import { ToastProvider } from './providers/ToastProvider';
 import AppShell from '../components/layout/AppShell';
 import SinglePage from '../pages/SinglePage';
+import BootScreen from '../components/ui/BootScreen';
 import { useScrollProgress } from '../hooks/useScrollProgress';
 
 function easeInQuad(t: number) {
@@ -51,15 +52,22 @@ function ScrollDarkenController() {
 }
 
 function App() {
+  const [booting, setBooting] = useState(true);
+
   return (
     <ThemeProvider>
       <ToastProvider>
-        <ScrollDarkenController />
-        <div className="scroll-darken-wrapper">
-          <AppShell>
-            <SinglePage />
-          </AppShell>
-        </div>
+        {booting && <BootScreen onComplete={() => setBooting(false)} />}
+        {!booting && (
+          <>
+            <ScrollDarkenController />
+            <div className="scroll-darken-wrapper">
+              <AppShell>
+                <SinglePage />
+              </AppShell>
+            </div>
+          </>
+        )}
       </ToastProvider>
     </ThemeProvider>
   );
