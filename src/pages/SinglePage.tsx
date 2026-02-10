@@ -386,7 +386,7 @@ export default function SinglePage() {
                 </p>
 
                 <div className={styles.contactStack}>
-                  {contactCards.map((card, i) => (
+                  {contactCards.map((card) => (
                     <div
                       key={card.title}
                       className={styles.contactRow}
