@@ -270,3 +270,111 @@
     .actions { flex-direction: column; }
     .decorativeCircle { width: 250px; height: 250px; }
 }
+
+/* ═══════════════════════════════════
+   HOME ONLY (UI tweaks)
+   NOTE: Use these classes ONLY on the Home page.
+   ═══════════════════════════════════ */
+
+/* 1) Full name: single line + gradient */
+.homeNameGradient {
+    display: inline-block;
+    white-space: nowrap;
+    max-width: 100%;
+    background: linear-gradient(90deg, #6366f1 0%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Optional wrapper to prevent awkward wrapping if the name sits next to other text */
+.homeNameLine {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-sm);
+    flex-wrap: nowrap;
+}
+
+/* 2) Right-side live animation (breathing) + cloud icon + more code chips */
+.homeDecorCircle {
+    position: relative;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(
+            circle at 45% 45%,
+            rgba(99, 102, 241, 0.10),
+            rgba(245, 158, 11, 0.07),
+            transparent 70%
+    );
+    border: 1px solid var(--color-border);
+    animation: homeBreath 5.25s ease-in-out infinite;
+    will-change: transform;
+}
+
+@keyframes homeBreath {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+.homeCloudIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 92px;
+    height: 92px;
+    opacity: 0.28;
+    filter: grayscale(100%);
+    color: var(--color-text-primary);
+    pointer-events: none;
+}
+
+.homeCloudIcon path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.homeFloating {
+    position: absolute;
+    background: color-mix(in srgb, var(--color-bg-secondary) 88%, transparent);
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    animation: homeFloat 4.6s ease-in-out infinite;
+    box-shadow: var(--shadow-md);
+    white-space: nowrap;
+    backdrop-filter: blur(6px);
+    transition: all 0.3s ease;
+}
+
+.homeFloating:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+}
+
+.homeCodeSnippet { font-weight: 600; }
+
+@keyframes homeFloat {
+    0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+    33% { transform: translateY(-10px) translateX(4px) rotate(1deg); }
+    66% { transform: translateY(-5px) translateX(-3px) rotate(-1deg); }
+}
+
+@media (max-width: 1024px) {
+    .homeDecorCircle { width: 340px; height: 340px; }
+    .homeCloudIcon { width: 80px; height: 80px; }
+}
+
+@media (max-width: 768px) {
+    .homeDecorCircle { width: 290px; height: 290px; }
+    .homeCloudIcon { width: 68px; height: 68px; }
+}

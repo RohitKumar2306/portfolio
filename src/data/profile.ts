@@ -69,15 +69,15 @@ export interface SkillCategory {
 }
 
 export const profile: Profile = {
-  name: 'Rohit Kumar',
-  firstName: 'Rohit',
-  lastName: 'Kumar',
+  name: 'Rohit Kumar Chintamani',
+  firstName: 'Rohit Kumar Chintamani',
+  lastName: 'Chintamani',
   role: 'Software Engineer',
   location: 'Missoula, MT',
   email: 'rohitkc2316@gmail.com',
   phone: '+1-872-216-5179',
   summary:
-    'Software Engineer with 4+ years of experience developing full-stack applications using Java, TypeScript, and React. Expert in designing secure internet/intranet architectures, managing SQL data persistence, and implementing user authentication workflows to support mission-critical operations.',
+    'Dedicated to scalable solutions on a modern stack. A Software Engineer focused on the holistic view: from robust infrastructure and microservice patterns to precise UI interactions. I implement strict security and DevOps workflows to ensure high-performance delivery in mission-critical environments.',
   github: 'https://github.com/RohitKumar2306',
   linkedin: 'www.linkedin.com/in/rohit-k-c',
 };

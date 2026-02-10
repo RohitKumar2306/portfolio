@@ -4,7 +4,7 @@ import styles from './HeroSection.module.css';
 import { profile } from '../../data/profile';
 import { GITHUB_URL, LINKEDIN_URL, EMAIL } from '../../utils/constants';
 
-const roles = ['Software Engineer', 'Full-Stack Developer', 'Backend Engineer', 'React Developer'];
+const roles = ['Software Engineer', 'Full-Stack Developer', 'Backend Engineer', 'DevOps Engineer'];
 
 function scrollToSection(id: string) {
   const el = document.getElementById(id);
@@ -57,8 +57,7 @@ export default function HeroSection() {
           </div>
 
           <h1 className={styles.name}>
-            <span className={styles.firstName}>{profile.firstName}</span>{' '}
-            <span className={styles.lastName}>{profile.lastName}</span>
+            <span className={styles.homeNameGradient}>{profile.name}</span>
           </h1>
 
           <p className={styles.role}>
@@ -99,7 +98,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className={styles.right}>
+        {/*<div className={styles.right}>
           <div className={styles.decorativeCircle}>
             <div className={styles.floatingCode} style={{ top: '15%', right: '10%' }}>
               <span className={styles.codeLine}>{'<'}<span style={{ color: 'var(--color-primary)' }}>Component</span>{' />'}</span>
@@ -111,7 +110,34 @@ export default function HeroSection() {
             <div className={styles.floatingDot} style={{ bottom: '30%', right: '20%', background: 'var(--color-accent)', animationDelay: '1s' }} />
             <div className={styles.floatingDot} style={{ top: '50%', left: '10%', background: 'var(--color-success)', animationDelay: '2s' }} />
           </div>
+        </div>*/}
+
+        <div className={styles.aboutDecoration} aria-hidden="true">
+          <div className={styles.homeDecorCircle}>
+            {/* B/W cloud icon in the middle */}
+            <svg className={styles.homeCloudIcon} viewBox="0 0 64 64">
+              <path d="M20 46h28a10 10 0 0 0 0-20 14 14 0 0 0-27-4A11 11 0 0 0 20 46Z" />
+            </svg>
+
+            {/* Keep your existing floating chips as-is, and add these extra ones */}
+            <div className={styles.homeFloating} style={{ top: "14%", left: "10%", animationDelay: "0s" }}>
+              <span className={styles.homeCodeSnippet}>class {"{}"}</span>
+            </div>
+
+            <div className={styles.homeFloating} style={{ top: "22%", right: "8%", animationDelay: "0.4s" }}>
+              <span className={styles.homeCodeSnippet}>@Override</span>
+            </div>
+
+            <div className={styles.homeFloating} style={{ bottom: "22%", left: "8%", animationDelay: "0.8s" }}>
+              <span className={styles.homeCodeSnippet}>{"</div>"}</span>
+            </div>
+
+            <div className={styles.homeFloating} style={{ bottom: "14%", right: "10%", animationDelay: "1.2s" }}>
+              <span className={styles.homeCodeSnippet}>new Thread()</span>
+            </div>
+          </div>
         </div>
+
       </div>
 
       {/* Bouncing scroll-down arrow */}
