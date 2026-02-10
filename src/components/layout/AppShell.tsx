@@ -1,0 +1,15 @@
+import React from 'react';
+import Navbar from './Navbar';
+import Footer from './Footer';
+
+interface AppShellProps { children: React.ReactNode; }
+
+export default function AppShell({ children }: AppShellProps) {
+  return (
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <Navbar />
+      <main style={{ flex: 1 }}>{children}</main>
+      <Footer />
+    </div>
+  );
+}

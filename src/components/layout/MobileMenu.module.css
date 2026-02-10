@@ -1,0 +1,93 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    animation: fadeIn 0.3s ease forwards;
+    backdrop-filter: blur(4px);
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(300px, 80vw);
+    background: var(--color-bg-primary);
+    border-left: 1px solid var(--color-border);
+    z-index: 999;
+    padding: var(--spacing-3xl) var(--spacing-lg) var(--spacing-2xl);
+    animation: slideIn 0.4s var(--ease-out-expo) forwards;
+}
+
+.closeBtn {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: none;
+    border: none;
+    font-size: var(--font-size-xl);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+.closeBtn:hover {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-xl);
+}
+
+.link {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    padding: var(--spacing-md) var(--spacing-md);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(30px);
+    animation: menuItemSlide 0.4s var(--ease-out-expo) forwards;
+}
+.link:hover {
+    color: var(--color-primary);
+    background: var(--color-bg-secondary);
+}
+.link.active {
+    color: var(--color-primary);
+    background: var(--color-bg-secondary);
+    font-weight: 600;
+    border-left: 3px solid var(--color-primary);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes menuItemSlide {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}

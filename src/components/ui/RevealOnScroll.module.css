@@ -1,0 +1,106 @@
+.reveal {
+  will-change: transform, opacity, filter;
+  transition-property: transform, opacity, filter, box-shadow, border-color, background-color;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Fade Up ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(50px);
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Fade Down ── */
+.fade-down {
+  opacity: 0;
+  transform: translateY(-40px);
+}
+.fade-down.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Fade Left ── */
+.fade-left {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+.fade-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Fade Right ── */
+.fade-right {
+  opacity: 0;
+  transform: translateX(60px);
+}
+.fade-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Scale Up ── */
+.scale-up {
+  opacity: 0;
+  transform: scale(0.85);
+}
+.scale-up.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Card Build ──
+   Simulates a card "constructing" itself:
+   starts as a thin line, expands into full card shape */
+.card-build {
+  opacity: 0;
+  transform: translateY(30px) scaleY(0.3);
+  transform-origin: top center;
+  filter: blur(4px);
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+.card-build.visible {
+  opacity: 1;
+  transform: translateY(0) scaleY(1);
+  filter: blur(0);
+}
+
+/* ── Blur In ── */
+.blur-in {
+  opacity: 0;
+  filter: blur(12px);
+  transform: scale(0.95);
+}
+.blur-in.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+/* ── Typewriter ── */
+.typewriter {
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+}
+.typewriter.visible {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

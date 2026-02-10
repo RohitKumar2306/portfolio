@@ -1,0 +1,554 @@
+.page {
+    scroll-behavior: smooth;
+}
+
+.section {
+    padding: var(--spacing-4xl) 0;
+    scroll-margin-top: var(--navbar-height);
+}
+
+.section:nth-child(even) {
+    background: color-mix(in srgb, var(--color-bg-secondary) 40%, transparent);
+}
+
+/* ═══════════════════════════════════
+   ABOUT
+   ═══════════════════════════════════ */
+.aboutContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: start;
+}
+
+.aboutText { max-width: 700px; }
+
+.aboutSubtitle {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-primary);
+}
+
+.aboutParagraph {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Stats row (horizontal under text) */
+.aboutStatsRow {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.statCard {
+    flex: 1;
+    padding: var(--spacing-lg);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    transition: all 0.3s var(--ease-out-expo);
+}
+.statCard:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-3px);
+}
+.statValue {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+}
+.statLabel {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+/* ── Issue 5: Decorative floating area (right side) ── */
+.aboutDecoration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.decorCircle {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(
+            circle at 45% 45%,
+            rgba(99, 102, 241, 0.08),
+            rgba(245, 158, 11, 0.05),
+            transparent 70%
+    );
+    border: 1px solid var(--color-border);
+}
+
+.aboutFloating {
+    position: absolute;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    animation: aboutFloat 5s ease-in-out infinite;
+    box-shadow: var(--shadow-md);
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+.aboutFloating:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.aboutCodeSnippet {
+    font-weight: 600;
+}
+
+.aboutDot {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    animation: aboutDotFloat 6s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+.aboutCenterIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+    animation: aboutPulse 4s ease-in-out infinite;
+}
+
+@keyframes aboutFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-12px) rotate(1.5deg); }
+    66% { transform: translateY(-6px) rotate(-1deg); }
+}
+
+@keyframes aboutDotFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.15); }
+}
+
+@keyframes aboutPulse {
+    0%, 100% { opacity: 0.25; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.45; transform: translate(-50%, -50%) scale(1.08); }
+}
+
+/* ═══════════════════════════════════
+   Issue 4: WORKFLOW PIPELINE
+   ═══════════════════════════════════ */
+.workflowCard {
+    margin-top: var(--spacing-3xl);
+    padding: var(--spacing-2xl) var(--spacing-xl);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: all 0.3s var(--ease-out-expo);
+}
+.workflowCard:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.workflowTitle {
+    text-align: center;
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.pipeline {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 var(--spacing-sm);
+}
+
+/* Connecting line behind the dots */
+.pipelineLine {
+    position: absolute;
+    top: 24px;
+    left: 32px;
+    right: 32px;
+    height: 3px;
+    background: var(--color-border);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+/* Glowing light that sweeps left → right */
+.pipelineGlow {
+    position: absolute;
+    top: 0;
+    left: -30%;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(
+            90deg,
+            transparent,
+            var(--color-primary),
+            rgba(99, 102, 241, 0.8),
+            var(--color-primary),
+            transparent
+    );
+    border-radius: var(--radius-full);
+    animation: pipelineSweep 3s ease-in-out infinite;
+}
+
+@keyframes pipelineSweep {
+    0% { left: -30%; }
+    100% { left: 100%; }
+}
+
+.pipelineStep {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+
+.stepDot {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-primary);
+    border: 2px solid var(--color-border);
+    transition: all 0.3s var(--ease-out-expo);
+    box-shadow: var(--shadow-sm);
+}
+
+.stepDot:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-glow);
+    transform: scale(1.15);
+}
+
+.stepIcon {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.stepLabel {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* ═══════════════════════════════════
+   EXPERIENCE — horizontal grid (like screenshot)
+   ═══════════════════════════════════ */
+.experienceGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+/* ═══════════════════════════════════
+   EDUCATION
+   ═══════════════════════════════════ */
+.educationGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.subSectionTitle {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    margin: var(--spacing-3xl) 0 var(--spacing-2xl);
+    text-align: center;
+    color: var(--color-text-primary);
+}
+
+.certGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+}
+.certCard {
+    text-align: center;
+    transition: all 0.3s var(--ease-out-expo);
+}
+.certCard:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-3px);
+}
+.certIcon { font-size: var(--font-size-4xl); margin-bottom: var(--spacing-md); }
+.certName { font-size: var(--font-size-lg); font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--color-text-primary); }
+.certIssuer { font-size: var(--font-size-base); color: var(--color-primary); font-weight: 500; margin-bottom: var(--spacing-xs); }
+.certDate { font-size: var(--font-size-sm); color: var(--color-text-tertiary); }
+
+/* ═══ SKILLS ═══ */
+.skillsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+/* ═══ PROJECTS ═══ */
+.projectFilters { margin-bottom: var(--spacing-2xl); display: flex; flex-direction: column; gap: var(--spacing-lg); }
+.projectCategories { display: flex; flex-wrap: wrap; gap: var(--spacing-sm); justify-content: center; }
+.projectSearch { max-width: 400px; margin: 0 auto; width: 100%; }
+
+/* ═══════════════════════════════════
+   CONTACT
+   ═══════════════════════════════════ */
+.contactContainer {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: var(--spacing-4xl);
+    align-items: start;
+    padding-top: var(--spacing-xl);
+}
+
+/* ── LEFT COLUMN ── */
+.contactLeft {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactHeading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+}
+
+.contactText {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-2xl);
+    line-height: var(--line-height-relaxed);
+}
+
+.emailLink {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* Vertical Stack Cards */
+.contactStack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.contactRow {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-xl);
+    background: var(--color-bg-secondary); /* Adaptive background */
+    border: 1px solid var(--color-border);   /* Adaptive border */
+    border-radius: var(--radius-lg);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contactRow:hover {
+    transform: translateX(5px);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.iconBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: white; /* Icon remains white */
+    margin-right: var(--spacing-lg);
+    flex-shrink: 0;
+}
+
+.cardTitle {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+}
+
+.cardText {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+}
+
+/* Socials */
+.socialSection {
+    margin-top: auto;
+}
+.socialTitle {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-primary);
+}
+.socialLinks {
+    display: flex;
+    gap: var(--spacing-md);
+}
+.socialLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    color: var(--color-text-secondary);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+}
+.socialLink:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: translateY(-3px);
+    border-color: var(--color-primary);
+}
+
+/* ── RIGHT COLUMN: FORM ── */
+.formContainer {
+    background: var(--color-bg-secondary); /* Adaptive form background */
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-3xl);
+    box-shadow: var(--shadow-lg);
+    position: relative; /* Needed for label stacking context */
+}
+
+.formTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.inputGroupRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+/* Floating Label Logic */
+.inputWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.inputField, .textAreaField {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.textAreaField {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.inputField:focus, .textAreaField:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary); /* Slight glow */
+}
+
+.inputLabel {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    padding: 0 4px;
+}
+
+/* Animate label when input is focused or has text */
+.inputField:focus + .inputLabel,
+.inputField:not(:placeholder-shown) + .inputLabel,
+.textAreaField:focus + .inputLabel,
+.textAreaField:not(:placeholder-shown) + .inputLabel {
+    top: -10px;
+    left: 10px;
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    background: var(--color-bg-secondary); /* IMPORTANT: Matches form bg to hide border line */
+    z-index: 2;
+}
+
+.submitBtn {
+    margin-top: var(--spacing-sm);
+    width: 150px;
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════ */
+@media (max-width: 1024px) {
+    .aboutContent { grid-template-columns: 1fr; }
+    .aboutDecoration { order: -1; margin-bottom: var(--spacing-3xl); }
+    .decorCircle { width: 300px; height: 300px; }
+    .aboutStatsRow { flex-wrap: wrap; }
+    .statCard { min-width: 120px; }
+
+    /* Stack Contact Section */
+    .contactContainer { grid-template-columns: 1fr; gap: var(--spacing-3xl); }
+    .contactLeft { text-align: center; }
+    .contactStack { text-align: left; }
+    .socialLinks { justify-content: center; }
+}
+
+@media (max-width: 768px) {
+    .section { padding: var(--spacing-2xl) 0; }
+    .aboutStatsRow { flex-direction: column; }
+    .decorCircle { width: 260px; height: 260px; }
+    .experienceGrid { grid-template-columns: 1fr; }
+    .educationGrid, .certGrid, .skillsGrid, .contactCards { grid-template-columns: 1fr; }
+
+    /* Pipeline: wrap into 2 rows on mobile */
+    .pipeline { flex-wrap: wrap; gap: var(--spacing-md); justify-content: center; }
+    .pipelineLine { display: none; }
+    .pipelineStep { width: calc(25% - var(--spacing-md)); }
+
+    /* Form stack on mobile */
+    .inputGroupRow { grid-template-columns: 1fr; }
+}

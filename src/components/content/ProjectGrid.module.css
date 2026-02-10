@@ -1,0 +1,13 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+}
+.empty {
+  text-align: center; padding: var(--spacing-4xl) var(--spacing-xl);
+  color: var(--color-text-secondary); font-size: var(--font-size-lg);
+}
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+}

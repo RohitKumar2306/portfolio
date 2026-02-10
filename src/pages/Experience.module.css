@@ -1,0 +1,20 @@
+.page { padding: var(--spacing-3xl) 0; }
+.timeline { display: flex; flex-direction: column; gap: var(--spacing-2xl); margin-bottom: var(--spacing-4xl); }
+
+.educationSection, .certificationsSection { margin-top: var(--spacing-4xl); }
+.sectionTitle { font-size: var(--font-size-3xl); font-weight: 700; margin-bottom: var(--spacing-2xl); text-align: center; color: var(--color-text-primary); }
+
+.educationGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: var(--spacing-xl); }
+.certificationsGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-xl); }
+
+.certCard { text-align: center; transition: all 0.3s var(--ease-out-expo); }
+.certCard:hover { box-shadow: var(--shadow-glow); }
+.certIcon { font-size: var(--font-size-4xl); margin-bottom: var(--spacing-md); }
+.certName { font-size: var(--font-size-lg); font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--color-text-primary); }
+.certIssuer { font-size: var(--font-size-base); color: var(--color-primary); font-weight: 500; margin-bottom: var(--spacing-xs); }
+.certDate { font-size: var(--font-size-sm); color: var(--color-text-tertiary); }
+
+@media (max-width: 768px) {
+  .page { padding: var(--spacing-2xl) 0; }
+  .educationGrid, .certificationsGrid { grid-template-columns: 1fr; }
+}

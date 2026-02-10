@@ -1,0 +1,111 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: color-mix(in srgb, var(--color-bg-primary) 85%, transparent);
+    border-bottom: 1px solid var(--color-border);
+    height: var(--navbar-height);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    transition: background var(--transition-base);
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--navbar-height);
+}
+
+.logo {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    transition: opacity var(--transition-fast);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+}
+.logo:hover { opacity: 0.8; }
+
+.firstName { color: var(--color-primary); }
+.lastName { color: var(--color-accent); }
+
+.cursor {
+    color: var(--color-primary);
+    font-family: var(--font-mono);
+    animation: blink 1s step-end infinite;
+}
+
+.desktopNav {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.link {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    position: relative;
+    transition: color var(--transition-fast);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: var(--radius-full);
+    transition: width 0.3s var(--ease-out-expo), left 0.3s var(--ease-out-expo);
+}
+.link:hover::after,
+.link.active::after {
+    width: 100%;
+    left: 0;
+}
+
+.link:hover { color: var(--color-primary); }
+
+.link.active {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.themeToggle { font-size: var(--font-size-xl); }
+
+.themeIcon {
+    display: inline-block;
+    transition: transform 0.5s var(--ease-spring);
+}
+.themeToggle:hover .themeIcon {
+    transform: rotate(30deg) scale(1.2);
+}
+
+.menuButton {
+    display: none;
+    font-size: var(--font-size-2xl);
+}
+
+@media (max-width: 768px) {
+    .desktopNav { display: none; }
+    .menuButton { display: flex; }
+}

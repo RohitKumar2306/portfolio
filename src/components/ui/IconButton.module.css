@@ -1,0 +1,8 @@
+.iconButton {
+  display: flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border: none; background: transparent;
+  color: var(--color-text-secondary); border-radius: var(--radius-md);
+  cursor: pointer; transition: all 0.3s var(--ease-out-expo);
+}
+.iconButton:hover { background: var(--color-bg-tertiary); color: var(--color-primary); transform: scale(1.1); }
+.iconButton:active { transform: scale(0.95); }
