@@ -35,7 +35,7 @@ body {
   background: linear-gradient(
     180deg,
     transparent 0%,
-    rgba(15, 23, 42, var(--scroll-overlay-opacity, 0)) 100%
+    rgba(0, 0, 0, var(--scroll-overlay-opacity, 0)) 100%
   );
   transition: opacity 0.3s ease;
 }
