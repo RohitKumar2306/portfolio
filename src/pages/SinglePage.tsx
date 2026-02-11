@@ -4,9 +4,9 @@ import HeroSection from '../components/content/HeroSection';
 import SectionHeader from '../components/content/SectionHeader';
 import ExperienceCard from '../components/content/ExperienceCard';
 import EducationCard from '../components/content/EducationCard';
+import CertificationCard from '../components/content/CertificationCard';
 import SkillGroup from '../components/content/SkillGroup';
 import ProjectGrid from '../components/content/ProjectGrid';
-import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
 import Chip from '../components/ui/Chip';
 import Input from '../components/ui/Input';
@@ -294,15 +294,10 @@ export default function SinglePage() {
             {certifications.map((cert, i) => (
               <RevealOnScroll
                 key={cert.id}
-                animation="scale-up"
+                animation="card-build"
                 staggerIndex={i}
               >
-                <Card className={styles.certCard}>
-                  <div className={styles.certIcon}>🏆</div>
-                  <h4 className={styles.certName}>{cert.name}</h4>
-                  <p className={styles.certIssuer}>{cert.issuer}</p>
-                  <p className={styles.certDate}>{cert.date}</p>
-                </Card>
+                <CertificationCard certification={cert} />
               </RevealOnScroll>
             ))}
           </div>

@@ -2,7 +2,7 @@ import Container from '../components/layout/Container';
 import SectionHeader from '../components/content/SectionHeader';
 import ExperienceCard from '../components/content/ExperienceCard';
 import EducationCard from '../components/content/EducationCard';
-import Card from '../components/ui/Card';
+import CertificationCard from '../components/content/CertificationCard';
 import RevealOnScroll from '../components/ui/RevealOnScroll';
 import { experiences, education, certifications } from '../data/profile';
 import styles from './Experience.module.css';
@@ -43,13 +43,8 @@ export default function Experience() {
           </RevealOnScroll>
           <div className={styles.certificationsGrid}>
             {certifications.map((cert, i) => (
-              <RevealOnScroll key={cert.id} animation="scale-up" staggerIndex={i}>
-                <Card className={styles.certCard}>
-                  <div className={styles.certIcon}>🏆</div>
-                  <h3 className={styles.certName}>{cert.name}</h3>
-                  <p className={styles.certIssuer}>{cert.issuer}</p>
-                  <p className={styles.certDate}>{cert.date}</p>
-                </Card>
+              <RevealOnScroll key={cert.id} animation="card-build" staggerIndex={i}>
+                <CertificationCard certification={cert} />
               </RevealOnScroll>
             ))}
           </div>
